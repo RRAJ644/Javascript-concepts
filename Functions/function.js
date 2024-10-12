@@ -24,9 +24,10 @@ function displayAddition(fn) {
   console.log('Addition is ' + fn(10, 15))
 }
 
-displayAddition(add)
+// displayAddition(add)
 
 // IIFE -> Immediately invoked function expression
 
-
-
+;(function sqaure1(n) {
+  console.log(n * n)
+})(5)

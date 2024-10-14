@@ -6,3 +6,16 @@ function sayHello(age, profession) {
 
 const bindFunc = sayHello.bind(obj)
 console.log(bindFunc(23, 'Software Engineer'))
+
+// polyfill
+
+Function.prototype.customBind = function (context = {}, ...args) {
+  if (typeof this !== 'function') {
+    throw new Error(this + "It's not callable")
+  }
+
+  context.fn = this
+  return function () {
+    return context.fn(...args)
+  }
+}
